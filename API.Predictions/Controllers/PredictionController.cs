@@ -14,11 +14,6 @@ namespace API.Predictions.Controllers {
         /// https://172.23.133.131/api/predictions?question=%27Does%20this%20work?%27
         [HttpGet]
         public ActionResult<string> Get(string question) {
-
-            if (string.IsNullOrEmpty(question)) {
-                return "Please ask a question.";
-            }
-
             return new MakePrediction().AskQuestion(question);
         }
     }

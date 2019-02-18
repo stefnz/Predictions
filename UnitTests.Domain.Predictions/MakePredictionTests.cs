@@ -21,5 +21,13 @@ namespace UseCaseTests {
 
             Assert.IsTrue(EightBall.Predictions.Contains(answer));
         }
+
+        [Test]
+        public void Any_empty_question_prompts_for_a_question() {
+            var makePrediction = new MakePrediction();
+            var answer = makePrediction.AskQuestion(string.Empty);
+
+            Assert.AreEqual("Please ask a question.", answer);
+        }
     }
 }
